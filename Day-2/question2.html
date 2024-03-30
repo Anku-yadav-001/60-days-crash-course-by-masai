@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule</title>
+    <style>
+        h1{
+            text-align: center;
+            font-family: cursive;
+            font-size: 50px;
+            text-decoration: underline;
+        }
+        .main-container{
+            width: 70%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            gap: 10px;
+        }
+        .main-container>div{
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+          display: flex;
+         justify-content: center;
+          align-items: center;
+          font-family: sans-serif;
+          font-weight: 600;
+        }
+        .main-container>div:nth-child(6n+1){
+            background-color: skyblue;
+        }
+        .main-container>div:nth-child(6n-1){
+            background-color: rgb(255, 190, 165);
+        }
+        .main-container>div:nth-child(3n){
+            background-color: rgb(255, 190, 165);
+        }
+        .main-container>div:nth-child(2n){
+            background-color: rgb(255, 223, 228);
+        }
+        .main-container>div:first-child{
+            border: none;
+            background: none;
+        }
+        .main-container>div:last-child{
+             width: 632%;
+             display: flex;
+             justify-content: left;
+             padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+      <div>
+        <h1>💥 Weekly Schedule 💥</h1>
+        <div class="main-container">
+              <div></div>
+              <div>Monday</div>
+              <div>Tuesday</div>
+              <div>Wednesday</div>
+              <div>Thursday</div>
+              <div>Friday</div>
+              <div>08:00</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>09:00</div>
+              <div>Hindi</div>
+              <div>English</div>
+              <div>Science</div>
+              <div>Social Science</div>
+              <div>IT</div>
+              <div>10:00</div>
+              <div>English</div>
+              <div>IT</div>
+              <div>Social Science</div>
+              <div>Science</div>
+              <div>Hindi</div>
+              <div>11:00</div>
+              <div>Science</div>
+              <div>Hindi</div>
+              <div>English</div>
+              <div>IT</div>
+              <div>Solial Science</div>
+              <div>12:00</div>
+              <div>Lunch</div>
+              <div>Lunch</div>
+              <div>Lunch</div>
+              <div>Lunch</div>
+              <div>Lunch</div>
+              <div>13:00</div>
+              <div>Social Science</div>
+              <div>Science</div>
+              <div>Sports</div>
+              <div>Hindi</div>
+              <div>English</div>
+              <div>14:00</div>
+              <div>IT</div>
+              <div>Sports</div>
+              <div>Hindi</div>
+              <div>3English</div>
+              <div>Science</div>
+              <div>15:00</div>
+              <div>Sports</div>
+              <div>Social Science</div>
+              <div>IT</div>
+              <div>Sports</div>
+              <div>Sports</div>
+              <div>16:00</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>PT</div>
+              <div>Note:The above data might be change according to the situation.</div>
+        </div>
+      </div>
+</body>
+</html>

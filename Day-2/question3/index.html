@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            font-family: sans-serif;
+            font-weight: 700;
+            font-size: 35px;
+            text-align: center;
+            background-color: rgb(49, 49, 49);
+           padding: 20px;
+           color: skyblue;
+        }
+        .nav-container{
+            background-color: rgb(87, 86, 86);
+
+        }
+        .nav-container>div{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+             height: 8vh;
+        }
+        .nav-container>div>div{
+            font-size: 18px;
+            font-family: sans-serif;
+            color: white;
+        }
+        .content-container>div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+        }
+        .content-container>div>div{
+            text-align: center;
+            padding: 10px;
+            font-family: sans-serif;
+        }
+        .content-container>div>div>img{
+            width: 60%;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .content-container>div>div>h2{
+            margin: 20px;
+        }
+        @media all and (max-width:760px) {
+            h1{
+               font-size: 30px;
+            }
+           .nav-sub-container{
+            border: 2px solid gray;
+            border-radius: 10px;
+            width: 95%;
+            margin: auto;
+           }
+           .content-container>div{
+            display: block
+        }
+        .content-container>div>div>img{
+            width: 40%;
+        }
+        .content-container>div>div>p{
+           font-size: 14px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>My Portfolio</h1>
+        <div class="nav-container">
+            <div class="nav-sub-container">
+            <div>Home</div>
+            <div>Education</div>
+            <div>Projects</div>
+            <div>Skills</div>
+            <div>Contact Me</div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div>
+                <div>
+                    <img src="./image1.png" alt="">
+                </div>
+                <div>
+                    <h2 style="color:green ;">Home</h2>
+                    <p>This is a dummy description for the Home section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="./image2.jpg" alt="">
+                </div>
+                <div>
+                    <h2 style="color: palevioletred;">Education</h2>
+                    <p>This is a dummy description for the Education section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="./image3.jpg" alt="">
+                </div>
+                <div>
+                    <h2 style="color:yellow ;">Projects</h2>
+                    <p>This is a dummy description for the Projects section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="./image4.jpg" alt="">
+                </div>
+                <div>
+                    <h2 style="color: blue;">Skills</h2>
+                    <p>This is a dummy description for the Skills section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="./image5.jpg" alt="">
+                </div>
+                <div>
+                    <h2 style="color:rgb(102, 204, 244) ;">Contact Me</h2>
+                    <p>This is a dummy description for the Contact <Menu:toolbar></Menu:toolbar> section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
