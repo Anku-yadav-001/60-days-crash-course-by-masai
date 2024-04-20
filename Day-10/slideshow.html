@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <style>
+    body{
+        background-color: black;
+    }
+         .image-container{
+            width: 50%;
+            height: 52vh;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+         img{
+            width: 100%;
+            border-radius: 10px;
+            height: 100%;
+         }
+         .buttons{
+            width: 50%;
+            margin: auto;
+            display: flex;
+         }
+         .buttons>button{
+            width: 95%;
+            border: 2px solid blue;
+            height: 5vh;
+            border-radius: 10px;
+            margin: 10px;
+         }
+         .buttons>button:hover{
+            background-color: blue;
+            scale: 1.1;
+            transition: all 0.4s ease-in-out;
+         }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.kBYTDoCkSAlCI5Nc_y8hJgHaGJ?w=227&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.-IZikFglpANto6wFDD7DBQHaE8?w=256&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.I8L-jG4mmdMQKb1zwLTmigHaEI?w=308&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.efUvc7EHRuyVrmjNujR5SQHaEo?w=261&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.eVKoQS87F-O80UqLVZXLlgHaEe?w=270&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP._M3bcT8nzP5hoc0mdikJYgHaE8?w=246&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.WzN2UZ_xHq45033bevsOgQHaED?w=300&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.VSkK-gvkjC7UgcqMsIxMNwHaHa?w=167&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.EFbRMLOp-q2FhCVtu1wx0QHaE8?w=255&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.azyA7GpCuxmvk92Obz-XYAHaEo?w=296&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.l3lbh0aIF8d_fJA_eXVgMAHaHZ?w=170&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.9QUFv1-LJIhoiFDNOST6EwHaHi?w=183&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.JAOUR4aqxBcOyEnGRtLwNAAAAA?w=168&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.LOkw1A5Rvr_glmN_hiB_BQHaE8?w=221&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.YxYaE5K4VgHewxjSw2_7xgHaHa?w=147&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.0D2NU4QEzwSVZIXHpJ6AeAHaDt?w=327&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.okvtEECKcFKmrVuSV90iUAHaEK?w=255&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.dUPnssesm1y9HRgpb_huHwHaEK?w=260&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.D1bJFAqNd652D9D1DebvoAHaEK?w=307&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.ESb1gwQZ8Ki5X_JDNlZ3_QHaD_?w=299&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.lnW4Lsi2Ro98kR7CFna6FAAAAA?w=89&h=89&c=1&rs=1&qlt=90&r=0&dpr=1.3&pid=InlineBlock" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th?q=Coder+Clip+Art+Transparent&dc=2&w=100&h=100&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" alt=""></div>
+    <div class="images"> <img src="https://th.bing.com/th/id/OIP.wkGABYMz3IhSNL2sG4w1FQHaEC?w=89&h=90&c=1&rs=1&qlt=90&r=0&dpr=1.3&pid=InlineBlock" alt=""></div>
+  
+</div> 
+    <div class="buttons">
+        <button onclick="nextbutton(-1)" class="previous">previous</button>
+        <button onclick="mainbutton()" id="mainbutton">start</button>
+        <button onclick="nextbutton(1)" class="next">next</button>
+    </div>
+
+</body>
+</html>
+<script>
+        let previous=document.getElementsByClassName("previous")
+        // let next=document.getElementsByClassName("next")
+        let mainbtn=document.getElementById("mainbutton")
+        let images=document.getElementsByClassName("images")
+        let index=0
+        let change_time
+        let running=false
+        
+        display(index)
+
+        function nextbutton(n){
+            stop_show()
+           display(index=index+n)
+        }
+        function mainbutton(){
+            if(running){
+                stop_show()
+                mainbtn.innerText= "Start"
+            }
+            else{
+                start_show()
+                mainbtn.innerText="Stop"
+            }
+        }
+
+        function start_show(){
+            running=true
+            change_time=setInterval(function(){
+                display(index=index+1)
+            },1000)
+        }
+
+        function stop_show(){
+            running=false
+            clearInterval(change_time)
+        }
+        function display(n){
+            if(n>images.length){
+                index=1
+            }
+            if(n<1){
+                index=images.length
+            }
+            for(let i=0;i<images.length;i++){
+                images[i].style.display="none"
+            }
+            images[index-1].style.display="block"
+        }
+</script>

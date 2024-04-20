@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        *{
+            font-family: sans-serif;
+           
+        }
+        body{
+            background-color: black;
+        }
+        #container{
+            width: 100%;
+            height: 95vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+         
+        }
+        .sub-container{
+            border: 2px solid black;
+            width: 20%;
+            height: 45vh;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            border-top: 10px solid blue;
+            border-bottom: 10px solid blue;
+            text-align: center;
+            background-color: white;
+        }
+        button{
+            width: 80%;
+            margin: 5px 10px 5px 10px;
+            border: 2px solid blue;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: blue;
+            scale: 1.1;
+            transition: all 0.4s ease-in-out;
+        }
+        h1{
+           font-weight: 800;
+           color: red;
+           border-bottom: 4px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="sub-container">
+            <h1>STOP-WATCH</h1>
+            <h2 id="show"></h2>
+            <button onclick="start()" id="start">start</button>
+            <button onclick="pause()" id="pause">pause</button>
+            <button onclick="reset()" id="stop">reset</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+        let time
+        let second=0
+        let show=document.getElementById("show")
+     
+     function start(){
+        time=setInterval(new_time,1000)
+     }
+     function pause(){
+        clearInterval(time)
+        time=null
+     }
+     function reset(){
+        clearInterval(time)
+    time = null
+    second = 0
+   show.textContent="00:00:00" 
+}
+function set_time(time_seconds){
+    let min=Math.floor(time_seconds/60)
+    let rem=time_seconds%60
+    let setmin=min>0?display(min)+":":""
+    let setsec=display(rem)
+    return setmin+setsec
+}
+function new_time(){
+    second++
+    let setDuration=set_time(second)
+    show.textContent=setDuration
+}
+function display(n){
+    return n<10?`0${n}`:n
+}
+</script>

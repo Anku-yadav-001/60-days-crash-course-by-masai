@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        *{
+            font-family: sans-serif;
+           
+        }
+        body{
+            background-color: black;
+        }
+        #container{
+            width: 100%;
+            height: 95vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+         
+        }
+        .sub-container{
+            border: 2px solid black;
+            width: 20%;
+            height: 50vh;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            border-top: 10px solid blue;
+            border-bottom: 10px solid blue;
+            text-align: center;
+            background-color: white;
+        }
+        button{
+            width: 80%;
+            margin: 5px 10px 5px 10px;
+            border: 2px solid blue;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: blue;
+            scale: 1.1;
+            transition: all 0.4s ease-in-out;
+        }
+        h1{
+           font-weight: 800;
+           color: red;
+           border-bottom: 4px solid blue;
+        }
+        .inputs{
+            display: flex;
+
+        }
+        .inputs>input{
+            width: 100%;
+            margin: 8px 4px 8px 4px;
+            text-align: center;
+            border: 2px solid blue;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="sub-container">
+            <h1>TIMER</h1>
+            <h2 id="show">00:00:00</h2>
+           <div class="inputs">
+            <label for="hours"></label>
+            <input type="number" placeholder="hours" id="hours" min="0" value="0">
+            <label for="minutes"></label>
+            <input type="number" placeholder="minutes" id="minutes" min="0" value="0">
+            <label for="seconds"></label>
+            <input type="number" placeholder="seconds" id="seconds" min="0" value="0">
+
+           </div>
+            <button id="start" onclick="start()">start</button>
+            <button id="pause" onclick="pause()">pause</button>
+            <button id="stop" onclick="reset()">reset</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let show=document.getElementById("show")
+   let time;
+
+   function start(){
+      let total_time=Number(document.getElementById('hours').value)*3600+Number(document.getElementById('minutes').value)*60+Number(document.getElementById('seconds').value)
+      time=setInterval(function(){
+            if(total_time<=-1){
+                alert("Time is up!")
+                clearInterval(time)
+            }
+            else{
+                let hrs=Math.floor(total_time/3600)
+                let mins=Math.floor((total_time%3600)/60)
+                let secs=Math.floor(total_time%60)
+                show.textContent=`${formatTime(hrs)}:${formatTime(mins)}:${formatTime(secs)}`
+                total_time--
+            }
+      },1000)
+   }
+   function pause(){
+   clearInterval(time)
+   }
+   function reset(){
+    clearInterval(time)
+    show.textContent="00:00:00"
+   }
+   function formatTime(time){
+     return time<10?`0${time}`:time;
+   }
+</script>
