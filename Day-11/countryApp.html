@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country App</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        #data-container{
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                gap: 10px;
+                width: 80%;
+                margin: auto;
+        }
+        #data-container>div{
+            border: 2px solid rgb(255, 0, 0);
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
+        }
+        h4{
+            color: blue;
+        }
+        .control-container{
+            width: 80%;
+            display: flex;
+            justify-content: center;
+           margin: 10px;
+        }
+        .control-container>select{
+            width: 50%;
+            height: 5vh;
+            background-color: red;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="control-container">
+        <select  id="filteration">
+            <option value="populationorder">population order</option>
+            <option value="asc">asc</option>
+            <option value="desc">desc</option>
+        </select>
+    </div>
+    <div id="data-container"></div>
+</body>
+</html>
+<script>
+    let container = document.getElementById("data-container");
+    let filteration = document.getElementById("filteration");
+    let data = [];
+
+    function fetchData(value) {
+        let url = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-countries';
+        if (value === 'asc' || value === 'desc') {
+            url += `?sort=population&order=${value}`;
+        }
+        fetch(url)
+        .then(function(res){
+            return res.json();
+        })
+        .then(function(res){
+            data = res.data;
+            displayData(data);
+        })
+        .catch(err => console.error(err));
+    }
+
+    fetchData();
+
+    filteration.addEventListener("change", function() {
+        fetchData(filteration.value);
+    });
+
+    function displayData(data){
+        container.innerHTML = '';
+        data.forEach(element => {
+            let div = document.createElement("div");
+            let country = document.createElement("h4");
+            let rank = document.createElement("p");
+            let population = document.createElement("p");
+            let id = document.createElement("p");
+
+            country.innerHTML = `<strong>Country:</strong> ${element.country}`;
+            id.innerHTML = `<strong>Id:</strong> ${element.id}`;
+            rank.innerHTML = `<strong>Rank:</strong> ${element.Rank}`;
+            population.innerHTML = `<strong>Population:</strong> ${element.population}`;
+
+            div.append(country, id, rank, population);
+            container.appendChild(div);
+        });
+    }
+</script>

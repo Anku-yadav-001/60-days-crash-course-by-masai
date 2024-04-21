@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispaly data using reqres.in</title>
+    <style>
+        #main-container{
+           display: grid;
+           grid-template-columns: repeat(3,1fr);
+           width: 80%;
+           margin: auto;
+         
+        }
+        #main-container>div{
+            width: 50%;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin: 10px;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="displayData()">Fetch Users</button>
+    <div id="main-container">
+         </div>
+</body>
+</html>
+<script>
+      let container=document.getElementById("main-container")
+        let data=[]
+      function displayData(){
+        fetch("https://reqres.in/api/users")
+        .then(function(res){
+            return res.json()
+        })
+        .then(function(res){
+            data=res.data
+            showData(data)
+        })
+      }
+      //avatar
+      //email
+      //first_name
+
+      function showData(data){
+        data.forEach(ele=>{
+            let div=document.createElement("div")
+            let email=document.createElement("p")
+            let fname=document.createElement("h3")
+            let avatar=document.createElement("img")
+
+            email.innerText=ele.email
+            fname.innerText=ele.first_name
+            avatar.src=ele.avatar
+
+            div.append(fname,email,avatar)
+            container.appendChild(div)
+        })
+      }
+</script>

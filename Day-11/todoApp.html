@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+         #main-container{
+            text-align: center;
+         }
+        #main-container>div{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container">
+             <button onclick="fetchData()">Fetch Todos</button>
+
+         </div>
+</body>
+</html>
+<script>
+   let container=document.getElementById("main-container")
+   let data=[]
+   function fetchData(){
+    fetch("https://jsonplaceholder.typicode.com/todos")
+    .then(function(res){
+        return res.json()
+    })
+    .then(function(res){
+        data=res
+        displayData(data)
+    })
+    .catch(err=>console.log(err))
+   }
+
+   function displayData(data){
+    data.forEach(ele=>{
+        let div=document.createElement("div")
+
+        let ptag=document.createElement("p")
+        ptag.innerText=ele.title
+
+        let iscompleted=document.createElement("input")
+        iscompleted.type="checkbox"
+        iscompleted.checked=ele.completed
+
+        div.append(ptag,iscompleted)
+        container.appendChild(div)
+    })
+   }
+
+</script>
