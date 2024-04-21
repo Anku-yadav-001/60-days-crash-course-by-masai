@@ -33,12 +33,12 @@
       let container=document.getElementById("main-container")
         let data=[]
       function displayData(){
-        fetch("https://reqres.in/api/users")
+        fetch("https://reqres.in/api/users")//fetch data from reqres.in api
         .then(function(res){
             return res.json()
         })
         .then(function(res){
-            data=res.data
+            data=res.data//store incoming information in data and pass this incoming data in showData function
             showData(data)
         })
       }
@@ -57,8 +57,8 @@
             fname.innerText=ele.first_name
             avatar.src=ele.avatar
 
-            div.append(fname,email,avatar)
-            container.appendChild(div)
+            div.append(fname,email,avatar)//append email,fname,avatar in div
+            container.appendChild(div)//append div in container
         })
       }
 </script>

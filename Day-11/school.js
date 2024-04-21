@@ -34,15 +34,15 @@ const school = {
   
   // Problem 10: countCalculation
   function countCalculation(school) {
-    const { math: { teachers: mathTeachersCount, students: mathStudentsCount }, history: { teachers: historyTeachersCount, students: historyStudentsCount } } = school.departments;
-    return { mathTeachersCount, historyTeachersCount, mathStudentsCount, historyStudentsCount };
+    const { math: { teachers: mathTeachersCount, students: mathStudentsCount }, history: { teachers: historyTeachersCount, students: historyStudentsCount } } = school.departments;//destrucuring data from object
+    return { mathTeachersCount, historyTeachersCount, mathStudentsCount, historyStudentsCount }; 
   }
   
   console.log(countCalculation(school));
   
   // Problem 11: findTopStudent
   function findTopStudent(school, courseName) {
-    let topStudent = school.students.reduce((max, student) => {
+    let topStudent = school.students.reduce((max, student) => {//using reduce function find out the max value 
       return student.scores[courseName] > max.scores[courseName] ? student : max;
     });
     return topStudent;
@@ -52,7 +52,7 @@ const school = {
   
   // Problem 12: addNewDept
   function addNewDept(school, newDepartment) {
-    return { ...school, departments: { ...school.departments, ...newDepartment } };
+    return { ...school, departments: { ...school.departments, ...newDepartment } };//using spread operator add new department
   }
   
   const newDepartment = { art: { teachers: 2, students: 50 } };

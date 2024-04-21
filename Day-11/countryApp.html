@@ -57,9 +57,9 @@
     let data = [];
 
     function fetchData(value) {
-        let url = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-countries';
-        if (value === 'asc' || value === 'desc') {
-            url += `?sort=population&order=${value}`;
+        let url = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-countries';//fetch data from the api
+        if (value === 'asc' || value === 'desc') {//check the filteration either acs or desc
+            url += `?sort=population&order=${value}`;//if filter is apply then the query will add with the end of api otherwise the api as it is call.
         }
         fetch(url)
         .then(function(res){
@@ -75,12 +75,12 @@
     fetchData();
 
     filteration.addEventListener("change", function() {
-        fetchData(filteration.value);
+        fetchData(filteration.value);//catch the order of data on the basis of select tag
     });
 
     function displayData(data){
         container.innerHTML = '';
-        data.forEach(element => {
+        data.forEach(element => {//using forEach function extract data from the api.
             let div = document.createElement("div");
             let country = document.createElement("h4");
             let rank = document.createElement("p");
@@ -92,8 +92,8 @@
             rank.innerHTML = `<strong>Rank:</strong> ${element.Rank}`;
             population.innerHTML = `<strong>Population:</strong> ${element.population}`;
 
-            div.append(country, id, rank, population);
-            container.appendChild(div);
+            div.append(country, id, rank, population);//append all the data in div
+            container.appendChild(div);//append div in container
         });
     }
 </script>
