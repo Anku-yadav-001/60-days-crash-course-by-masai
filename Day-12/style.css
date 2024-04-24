@@ -1,0 +1,105 @@
+*{
+    font-family: sans-serif;
+}
+/* home page css */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 95vh;
+}
+.container>a>button{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+.container>a>button:hover{
+    transition: all 0.5s ease-in;
+    scale: 1.5;
+    background-color: rgb(0, 0, 69);
+}
+/* for singin page  */
+#main-container{
+    width: 100%;
+   display: flex;
+   justify-content: center;
+}
+.user-details{
+    width: 25%;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: white;
+}
+.user-details>form>input{
+    width: 95%;
+    height: 5vh;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid red;
+}
+.heading{
+    text-align: center;
+    color:  blue;
+    text-decoration: underline;
+}
+
+/* for products page */
+*{
+    margin: 0;
+    padding: 0;
+}
+#products-nav{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: end;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 10vh;
+  align-items: center;
+  background-color: aqua;
+}
+#products-nav>div{
+    padding: 10px 50px 10px 0;
+   color: blue;
+}
+#products{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding-top: 20px;
+}
+#products>div{
+    /* border: 2px solid rgb(13, 0, 255); */
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#products>div>img{
+    width: 40%;
+    margin: 10px;
+}
+#products>div>h4{
+    margin: 10px;
+    color: red;
+}
+#products>div>p>strong{
+    color: blue;
+}
+#products>div>p{
+
+    margin: 10px;
+}
+#products>div>button{
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+      
+}

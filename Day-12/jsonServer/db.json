@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "name": "aman",
+      "email": "yaman49751@gmail.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "name": "anku",
+      "email": "yaman49751@gmail.com",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "name": "rag",
+      "email": "",
+      "password": "",
+      "id": 3
+    },
+    {
+      "name": "kamal",
+      "email": "kamal@gmail.com",
+      "password": "123321",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "productId": 1,
+      "title": "SmartPhone",
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBkz2kjdQjM6DX7mLSYMtBrQMF_wRCFb-3cxwI5rPg1A&s",
+      "price": 15000,
+      "ratings": 5
+    },
+    {
+      "productId": 2,
+      "title": "TV",
+      "src": "https://5.imimg.com/data5/SELLER/Default/2023/4/299765792/GM/GW/BT/6158633/50-inch-smart-android-led-tv-500x500.jpg",
+      "price": 25000,
+      "ratings": 4
+    },
+    {
+      "productId": 3,
+      "title": "Laptop",
+      "src": "https://images-cdn.ubuy.co.in/633b75b241637808af7d4688-asus-laptop-l510-ultra-thin-laptop.jpg",
+      "price": 35000,
+      "ratings": 4.5
+    },
+    {
+      "productId": 4,
+      "title": "Washing Machine",
+      "src": "https://whirlpoolindia.vtexassets.com/arquivos/ids/167574-1200-auto?v=638320917724870000",
+      "price": 20000,
+      "ratings": 3.2
+    },
+    {
+      "productId": 5,
+      "title": "Microwave oven",
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyiYVs3xse5zH7hhmnIDtU6ZchYBpCOuid00Gev16kbQ&s",
+      "price": 23000,
+      "ratings": 3.8
+    },
+    {
+      "productId": 6,
+      "title": "Ear buds",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/l/p/4/-original-imagtvqpkzkedv8p.jpeg?q=70",
+      "price": 1400,
+      "ratings": 4.2
+    }
+  ],
+  "allUsersCart": {
+    "anku": []
+  }
+}
