@@ -1,11 +1,6 @@
 {
   "users": [
-    {
-      "name": "anku",
-      "email": "yaman49751@gmail.com",
-      "password": "12345",
-      "id": 1
-    }
+    
   ],
   "products": [
     {
@@ -115,21 +110,6 @@
     }
   ],
   "allUsersCart": {
-    "anku": [
-      {
-        "id": 1,
-        "title": "SmartPhone",
-        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBkz2kjdQjM6DX7mLSYMtBrQMF_wRCFb-3cxwI5rPg1A&s",
-        "price": 15000,
-        "ratings": 5
-      },
-      {
-        "id": 15,
-        "title": "Headset",
-        "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/i/e/c/ranger-hx300-bluetooth-gaming-headphones-with-50ms-low-latency-original-imagjs4zfdhzzrgj.jpeg?q=70",
-        "price": 1400,
-        "ratings": 5
-      }
-    ]
+   
   }
 }
