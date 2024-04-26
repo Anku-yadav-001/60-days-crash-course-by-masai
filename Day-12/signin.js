@@ -16,7 +16,7 @@ var handleFormData = (event) => {
 
 async function sendData(obj) {
     try {
-        let resp = await fetch("http://localhost:3000/users", {
+        let resp = await fetch("http://localhost:8080/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

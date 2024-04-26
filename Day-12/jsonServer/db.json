@@ -1,75 +1,135 @@
 {
   "users": [
     {
-      "name": "aman",
-      "email": "yaman49751@gmail.com",
-      "password": "123456",
-      "id": 1
-    },
-    {
       "name": "anku",
       "email": "yaman49751@gmail.com",
       "password": "12345",
-      "id": 2
-    },
-    {
-      "name": "rag",
-      "email": "",
-      "password": "",
-      "id": 3
-    },
-    {
-      "name": "kamal",
-      "email": "kamal@gmail.com",
-      "password": "123321",
-      "id": 4
+      "id": 1
     }
   ],
   "products": [
     {
-      "productId": 1,
+      "id": 1,
       "title": "SmartPhone",
       "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBkz2kjdQjM6DX7mLSYMtBrQMF_wRCFb-3cxwI5rPg1A&s",
       "price": 15000,
       "ratings": 5
     },
     {
-      "productId": 2,
+      "id": 2,
       "title": "TV",
       "src": "https://5.imimg.com/data5/SELLER/Default/2023/4/299765792/GM/GW/BT/6158633/50-inch-smart-android-led-tv-500x500.jpg",
       "price": 25000,
       "ratings": 4
     },
     {
-      "productId": 3,
+      "id": 3,
       "title": "Laptop",
       "src": "https://images-cdn.ubuy.co.in/633b75b241637808af7d4688-asus-laptop-l510-ultra-thin-laptop.jpg",
       "price": 35000,
       "ratings": 4.5
     },
     {
-      "productId": 4,
+      "id": 4,
       "title": "Washing Machine",
       "src": "https://whirlpoolindia.vtexassets.com/arquivos/ids/167574-1200-auto?v=638320917724870000",
       "price": 20000,
       "ratings": 3.2
     },
     {
-      "productId": 5,
+      "id": 5,
       "title": "Microwave oven",
       "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyiYVs3xse5zH7hhmnIDtU6ZchYBpCOuid00Gev16kbQ&s",
       "price": 23000,
       "ratings": 3.8
     },
     {
-      "productId": 6,
-      "title": "Ear buds",
-      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/l/p/4/-original-imagtvqpkzkedv8p.jpeg?q=70",
-      "price": 1400,
+      "id": 6,
+      "title": "Fiction Books",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/book/o/q/a/the-kalki-trilogy-set-of-3-books-avatar-of-vishnu-eye-of-brahma-original-imagmzjgzfhjmfqr.jpeg?q=70",
+      "price": 3000,
+      "ratings": 3.8
+    },
+    {
+      "id": 7,
+      "title": "TRIGGR Kraken X1",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/f/b/v/-original-imagywufhynhgt7x.jpeg?q=70",
+      "price": 4000,
+      "ratings": 4.5
+    },
+    {
+      "id": 8,
+      "title": "OnePlus Buds",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/h/e/h/buds-3-e509a-oneplus-original-imagwynyzms78bsg.jpeg?q=70",
+      "price": 500,
+      "ratings": 5
+    },
+    {
+      "id": 9,
+      "title": "OnePlus Nord Buds",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/w/t/q/-original-imagr4t8zuq2wzhe.jpeg?q=70",
+      "price": 350,
+      "ratings": 2.4
+    },
+    {
+      "id": 10,
+      "title": "Super Buds Pro GT99",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/g/o/6/-original-imagspdwvn4epqvb.jpeg?q=70",
+      "price": 5000,
+      "ratings": 4
+    },
+    {
+      "id": 11,
+      "title": "ZEBRONICS ZEB-PIXAPLAY 15",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/projector/a/k/a/zeb-pixaplay-15-18-37-zeb-pixaplay-15-led-projector-zebronics-original-imagxy7pfps2fjyz.jpeg?q=70",
+      "price": 20000,
+      "ratings": 5.2
+    },
+    {
+      "id": 12,
+      "title": "Digital Watch Pro",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/z/z/8/-original-imagtps8ryqqhaja.jpeg?q=70",
+      "price": 800,
       "ratings": 4.2
+    },
+    {
+      "id": 13,
+      "title": "Maizic Smarthome Studio Classy Dynamic Microphone",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/microphone/z/w/z/studio-classy-dynamic-microphone-with-wire-mike-unidirectional-original-imaguuzrkepw95gg.jpeg?q=70",
+      "price": 260,
+      "ratings": 3.5
+    },
+    {
+      "id": 14,
+      "title": "Men's Cap",
+      "src": "https://rukminim2.flixcart.com/image/612/612/kxdl3m80/cap/b/b/q/free-cap-01-watch-01-sunglass-florida-original-imag9uk56ktghjzv.jpeg?q=70",
+      "price": 120,
+      "ratings": 3
+    },
+    {
+      "id": 15,
+      "title": "Headset",
+      "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/i/e/c/ranger-hx300-bluetooth-gaming-headphones-with-50ms-low-latency-original-imagjs4zfdhzzrgj.jpeg?q=70",
+      "price": 1400,
+      "ratings": 5
     }
   ],
   "allUsersCart": {
-    "anku": []
+    "anku": [
+      {
+        "id": 1,
+        "title": "SmartPhone",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBkz2kjdQjM6DX7mLSYMtBrQMF_wRCFb-3cxwI5rPg1A&s",
+        "price": 15000,
+        "ratings": 5
+      },
+      {
+        "id": 15,
+        "title": "Headset",
+        "src": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/i/e/c/ranger-hx300-bluetooth-gaming-headphones-with-50ms-low-latency-original-imagjs4zfdhzzrgj.jpeg?q=70",
+        "price": 1400,
+        "ratings": 5
+      }
+    ]
   }
 }
