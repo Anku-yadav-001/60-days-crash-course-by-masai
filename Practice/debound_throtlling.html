@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing and Throtlling</title>
+    <style>
+        body{
+            height: 200vh;
+        }
+    </style>
+</head>
+<body onscroll="main()">
+        <div style="position: fixed;">
+            <div id="n_count"> normal count</div>
+            <div id="t_count"> throttle count</div>
+            <div id="d_count">debounce  count</div>
+        </div>
+</body>
+</html>
+<script>
+        let n_count=document.getElementById("n_count")
+        let t_count=document.getElementById("t_count")
+        let d_count=document.getElementById("d_count")
+        let n=0;
+        let t=0;
+        let d=0;
+        let scrolling=true;
+
+function normal_count(){
+                n++;
+                n_count.innerHTML=`normal count ${n}`    
+}
+function throttle_count(){
+            if(scrolling){
+                    t++;
+                    t_count.innerHTML=`throttle count ${t}` 
+                    scrolling=false
+                setTimeout(function(){
+                            scrolling=true
+                },1000)
+            }
+}
+let interval;
+function debounce_count(){
+   clearInterval(interval)
+    interval=setTimeout(function(){
+                d++
+                d_count.innerHTML=`Debounce count ${d}`
+    },1000)
+}
+function main(){
+         normal_count();
+         throttle_count();
+         debounce_count();
+}
+</script>
