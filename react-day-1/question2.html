@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+//Simple JSX Element
+    let root=document.getElementById("root")
+    let createRoot=ReactDOM.createRoot(root)//create root witht the help of createRoot
+    createRoot.render(<p>Seize the day</p>)
+
+//Dynamic Content in JSX
+    let dynamicText="Seize the day"//dynamic text if the value of `dynamicText` is change te innter text of <p> is also change
+    createRoot.render(<p>{dynamicText}</p>)
+
+//Conditional Rendering in JSX
+    let isTrue=false //condition bases variable that holds boolean value
+    let text
+    if(isTrue){
+        text=<p>Seize the day</p> //if condition is true then the value of text is "Seize the day"
+    }
+    else{
+        text=<p>Welcome</p>//else the value of text is "Welcome"
+    }
+    createRoot.render(text) //rendering onto the UI
+    </script>
+  </body>
+</html>
