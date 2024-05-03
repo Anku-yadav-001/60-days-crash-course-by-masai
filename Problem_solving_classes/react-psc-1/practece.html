@@ -82,6 +82,7 @@
                     <h3>{`Name: ${user.firstName}`}</h3>
                     <p>{`madienName: ${user.maidenName}`}</p>
                     <p>{`Last Name: ${user.lastName}`}</p>
+                    <p>{`password: ${user.address.city}`}</p>
                     <p>{`Age: ${user.age}`}</p>
                     <p  style={{color:`${user.gender=="male"?("blue"):("pink")}`}}>{`gender: ${user.gender}`}</p>
                     <p>{`email: ${user.email}`}</p>
@@ -89,6 +90,8 @@
                     <p>{`username: ${user.username}`}</p>
                     <p>{`password: ${user.password}`}</p>
                     <img src={user.image} alt=""/>
+                    <p>{`DOB: ${user.birthDate}`}</p>
+                   
                 </div>
         </>
       }
