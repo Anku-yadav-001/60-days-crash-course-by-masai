@@ -79,6 +79,7 @@
        
         return <>
                 <div>
+                    <img src={user.image} alt=""/>
                     <h3>{`Name: ${user.firstName}`}</h3>
                     <p>{`madienName: ${user.maidenName}`}</p>
                     <p>{`Last Name: ${user.lastName}`}</p>
@@ -89,9 +90,8 @@
                     <p>{`phone: ${user.phone}`}</p>
                     <p>{`username: ${user.username}`}</p>
                     <p>{`password: ${user.password}`}</p>
-                    <img src={user.image} alt=""/>
                     <p>{`DOB: ${user.birthDate}`}</p>
-                   
+
                 </div>
         </>
       }
