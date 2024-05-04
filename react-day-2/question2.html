@@ -20,7 +20,7 @@
         <div>
           {items.length === 0 ? ("") : (
             <ul>
-              {items.map((item) => (
+              {items.map((item) => (//iterate on each element of array
                 <li>{item}</li>
               ))}
             </ul>
@@ -31,7 +31,7 @@
     let arr1=["Apple", "Banana", "Cherry"]
     createRoot.render(
         <div>
-            <ItemList items={arr1}/>  
+            <ItemList items={arr1}/>  //calling the ItemList component with args arr1
         </div>
     )
 </script>

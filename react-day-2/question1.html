@@ -1,0 +1,49 @@
+<!-- function Greet({ text, name }) {
+    return (
+      <p>
+        {text}, {name}
+      </p>
+    );
+  }
+  
+  const element = (
+    <div className="container">
+      <Greet text="Happy Birthday" name="Bruce" />
+      <Greet text="Good Morning" name="Rachel" />
+    </div>
+  );
+  
+  // Rendering the element in a React application
+  const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+  reactRoot.render(element); -->
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your ItemList component code will go here
+    let root=document.getElementById("root")
+    let createRoot=ReactDOM.createRoot(root)
+function Gallery({ children }) {
+    console.log(children);
+  return <div className="gallery-grid">{children}</div>;
+}
+
+// Example usage
+let ans=<Gallery>
+    <Image src="https://images.pexels.com/photos/4220967/pexels-photo-4220967.jpeg?auto=compress&cs=tinysrgb&w=600" />
+  <Image src="https://images.pexels.com/photos/9270395/pexels-photo-9270395.jpeg?auto=compress&cs=tinysrgb&w=600" />
+</Gallery>;
+createRoot.render(ans)
+  </script>
+</body>
+</html>
