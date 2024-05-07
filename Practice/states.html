@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+      let root=document.getElementById("root")
+      let createRoot=ReactDOM.createRoot(root)
+
+      function App(){
+       let [count,setCount]=React.useState(90)
+        function addTips(){
+          setCount(count+8)
+        }
+        return <>
+          <h1>Count: {count}</h1>
+          <button onClick={addTips}>Increase count</button>
+        </>
+      }
+      createRoot.render(<App/>)
+    </script>
+  </body>
+</html>
