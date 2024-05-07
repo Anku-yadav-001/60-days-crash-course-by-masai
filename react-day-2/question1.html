@@ -1,23 +1,4 @@
-<!-- function Greet({ text, name }) {
-    return (
-      <p>
-        {text}, {name}
-      </p>
-    );
-  }
-  
-  const element = (
-    <div className="container">
-      <Greet text="Happy Birthday" name="Bruce" />
-      <Greet text="Good Morning" name="Rachel" />
-    </div>
-  );
-  
-  // Rendering the element in a React application
-  const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
-  reactRoot.render(element); -->
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -33,17 +14,30 @@
     // Your ItemList component code will go here
     let root=document.getElementById("root")
     let createRoot=ReactDOM.createRoot(root)
-function Gallery({ children }) {
-    console.log(children);
-  return <div className="gallery-grid">{children}</div>;
+function Gallery({children}){
+             return <>
+             <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",width:"100%",gap:"10px"}}>{children}</div>
+             </>
 }
+function Image({src}){
+  return <div><img src={src} style={{width:"80%"}}/></div>
+}
+   function App(){
 
-// Example usage
-let ans=<Gallery>
-    <Image src="https://images.pexels.com/photos/4220967/pexels-photo-4220967.jpeg?auto=compress&cs=tinysrgb&w=600" />
-  <Image src="https://images.pexels.com/photos/9270395/pexels-photo-9270395.jpeg?auto=compress&cs=tinysrgb&w=600" />
-</Gallery>;
-createRoot.render(ans)
+    return (
+      <>
+        <Gallery>
+          <Image src="https://wallpapercave.com/wp/FCDgjHU.jpg"/>
+          <Image src="https://wallpaperaccess.com/full/2416021.jpg"/>
+          <Image src="https://jooinn.com/images/beauty-of-nature-24.jpg"/>
+          <Image src="https://wallpaperaccess.com/full/4723250.jpg"/>
+          <Image src="https://th.bing.com/th/id/OIP.ar4Iqk4Cjg9kMVh2VbdYCAHaFj?rs=1&pid=ImgDetMain"/>
+          <Image src="https://wallsdesk.com/wp-content/uploads/2016/05/Waterfalls-Photos.jpg"/>
+        </Gallery>
+      </>
+    )
+   }
+createRoot.render(<App/>)
   </script>
 </body>
 </html>
