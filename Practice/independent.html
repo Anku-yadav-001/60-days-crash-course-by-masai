@@ -15,14 +15,9 @@
       let createRoot=ReactDOM.createRoot(root)
 
       function App(){
-       let [name,setName]=React.useState("")
-       function changeName(event){
-               setName(event.target.value);
-       };
-       
+      
         return <>
-        <input placeholder="enter name..." value={name} onChange={changeName}/>
-        <h1>Super hero: {name}</h1>
+       
         </>
       }
       createRoot.render(<App/>)
