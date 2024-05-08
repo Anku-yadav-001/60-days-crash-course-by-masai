@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let root=document.getElementById("root")
+    let createRoot=ReactDOM.createRoot(root)
+
+    function App(){
+        let [color,setColor]=React.useState("");
+        
+        function handleColor(e){
+          if(e.target.value.slice(0,1)!=="#"){
+          alert("Please enter valid HEX color code")
+           }
+          setColor(e.target.value)
+        }
+        return <>
+             <div style={{width:"20%",height:"20vh",border:"2px solid black",background:color}}></div>
+            <input placeholder="enter HEX number..." value={color} onChange={handleColor} />
+        </>
+    }
+    createRoot.render(<App/>)
+  </script>
+</html>

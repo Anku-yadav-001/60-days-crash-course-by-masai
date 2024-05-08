@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let root=document.getElementById("root")
+    let createRoot=ReactDOM.createRoot(root)
+    function Quiz(){
+           let questions=[
+            {
+                 question:"1. What of the following is used in React.js to increase performance?",
+                 options:["Actual DOM","Virtual DOM","Both","None of these"],
+                 correct:"Virtual DOM"
+            },
+            {
+                 question:"2. What is the default port where webpack-server runs?",
+                 options:["3000","8080","6060","3030"],
+                 correct:"8080"
+            },
+            {
+                 question:"3. Which of the following method refers to the parent class in React.js?",
+                 options:["super","inherits","this","self"],
+                 correct:"super"
+            },
+            {
+                 question:"4. Which of the following acts as the input of a class-based component?",
+                 options:["props","render","class","factory"],
+                 correct:"props"
+            },
+            {
+                  question:"5. Which hook is used to manage the states?",
+                  options:["useEffect()","useState()","useContext()","useMemo()"],
+                  correct:"useState()"   
+            },
+            {
+                question:"6. Who created React.Js?",
+                options:["Jordan Mike","Jordan Walke","Jordan Lee","Tim Lee"],
+                correct:"Jordan Walke"
+            },
+            {
+              question:"7. In Which language is React.js written?",
+              options:["Java","Python","Javascript","C++"],
+              correct:"Javascript"
+            },
+            {
+              question:"8. How many elements can a valid react component return?",
+              options:["1","2","3","Infinite"],
+              correct:"1"
+            },
+            {
+              question:"9. In MVC, what does React.js act as?",
+              options:["Controller","Middleware","Router","Model"],
+              correct:"Controller"
+            },
+            {
+              question:"10. What is React.JS mainly used for building?",
+              options:["Database","User Interface"," Connectivity","Design building"],
+              correct:"User Interface"
+            },
+            {
+              question:"11 .Among the following which is used to create a class inheritance?",
+              options:["this","self","create"," Extends"],
+              correct:" Extends"
+            }
+           ]
+           let [answer,setAnwer]=React.useState(Array(questions.length).fill(null))
+           let [score,setScore]=React.useState(0)
+           let [displayScore,setDisplayScore]=React.useState(false)
+
+           function handleSelect(ele,index){
+            const newAns=[...answer]
+            newAns[index]=ele
+            setAnwer(newAns)
+           }
+           function handleSubmitAndCalculateScore(){
+            let newScore=0
+            
+
+            questions.forEach((ele,index)=>{
+              if(ele.correct===answer[index]){
+                newScore++
+              }
+            })
+            setScore(newScore)
+            setDisplayScore(true)
+           }
+
+           function restartQuiz(){
+              setAnwer(Array(questions.length).fill(null))
+              setDisplayScore(false)
+              setScore(0)
+           }
+           return <>
+              {
+                !displayScore?(
+                  <div>
+                  {questions.map((element,index)=>(
+                    <div>
+                         <p>{element.question}</p>  
+                         {element.options.map((option,indexopt)=>(
+                            <div>
+                              <input
+                              id={`option-${index}=${indexopt}`}
+                             type="radio"
+                             name={`question-${index}`}
+                             value={option}
+                              checked={answer[index]===option}
+                              onChange={()=>handleSelect(option,index)}
+                            />
+                            <label htmlFor={`option-${index}-${indexopt}`}>{option}</label>  
+                            </div>
+                         ))}
+                    </div>
+                  ))} 
+                  <button onClick={handleSubmitAndCalculateScore}>!! Submit !!</button> 
+              </div>
+                ):(
+                  <div>
+                    <h3>{`YOUR SCORE: ${score}/${questions.length}`}</h3>  
+                    <button onClick={restartQuiz}>Restart quiz</button>
+                  </div>
+                )
+              }
+           </>
+    }
+
+    function App(){
+        return <>
+                <Quiz/>
+        </>
+    }
+    createRoot.render(<App/>)
+  </script>
+</html>
