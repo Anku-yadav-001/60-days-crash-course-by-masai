@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let root=document.getElementById("root")
+    let createRoot=ReactDOM.createRoot(root)
+
+    function App(){
+            let [alltask,setAlltask]=React.useState([])
+            let [task,setTask]=React.useState("")
+            let [completed,setCompleted]=React.useState(false)
+            let [remove,setRemove]=React.useState(false)
+            function handleSubmit(e){
+                e.preventDefault()
+                setAlltask((prev)=>[...prev,{
+                    task:task,
+                    completed:completed,
+                    remove:remove
+                }])
+                console.log(alltask);
+            }
+           function handleRemove(){
+                    alltask.splice(1,1)
+           }
+        return <>
+                 <div>
+                    <form onSubmit={handleSubmit}>
+                    <label htmlFor="addtask">Add task: </label>
+                    <input placeholder="add new task" id="addtask" value={task} onChange={(e)=>setTask(e.target.value)}/><br/>
+
+                    <label htmlFor="completed">Completed: </label>
+                    <input type="checkbox" id="completed" checked={completed} onChange={()=>setCompleted(!completed)}/><br/>
+
+                    <label htmlFor="remove">Remove: </label>
+                    <input type="checkbox" id="remove" checked={remove} onChange={()=>setRemove(!remove)}/>    
+
+                    <button type="submit">Submit</button>
+                </form>  
+                </div>
+
+                <div>
+                    {alltask.map((ele)=>(
+                        <div>
+                            <h3>Task: {ele.task}</h3>  
+                            <p>Completed: {ele.completed?("YES"):("NO")}</p>
+                            <p>Removed:{ele.remove?("YES"):("NO")}</p>  
+                            <button onClick={handleRemove}>Remove</button>
+                        </div>
+                    ))}    
+                </div>
+        </>
+    }
+    createRoot.render(<App/>)
+  </script>
+</html>
