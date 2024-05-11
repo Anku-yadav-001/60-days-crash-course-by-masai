@@ -15,8 +15,8 @@
     // Your  code will go here
     let root=document.getElementById("root")
     let createRoot=ReactDOM.createRoot(root)
-    function Quiz(){
-           let questions=[
+        function Quiz(){
+            let questions=[
             {
                  question:"1. What of the following is used in React.js to increase performance?",
                  options:["Actual DOM","Virtual DOM","Both","None of these"],
@@ -130,13 +130,11 @@
                     <button onClick={restartQuiz}>Restart quiz</button>
                   </div>
                 )
-              }
-           </>
-    }
-
+              }</>
+        }
     function App(){
         return <>
-                <Quiz/>
+            <Quiz/>
         </>
     }
     createRoot.render(<App/>)

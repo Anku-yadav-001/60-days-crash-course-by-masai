@@ -17,22 +17,20 @@
     let createRoot=ReactDOM.createRoot(root)
 
     function App(){
-            let [alltask,setAlltask]=React.useState([])
+        let [alltask,setAlltask]=React.useState([])
             let [task,setTask]=React.useState("")
             let [completed,setCompleted]=React.useState(false)
-            let [remove,setRemove]=React.useState(false)
             function handleSubmit(e){
                 e.preventDefault()
                 setAlltask((prev)=>[...prev,{
+                    id:Date.now(),
                     task:task,
                     completed:completed,
-                    remove:remove
                 }])
-                console.log(alltask);
             }
-           function handleRemove(){
-                    alltask.splice(1,1)
-           }
+            function handleRemove(id){
+    setAlltask(prev => prev.filter(todo => todo.id !== id));
+}
         return <>
                  <div>
                     <form onSubmit={handleSubmit}>
@@ -42,20 +40,16 @@
                     <label htmlFor="completed">Completed: </label>
                     <input type="checkbox" id="completed" checked={completed} onChange={()=>setCompleted(!completed)}/><br/>
 
-                    <label htmlFor="remove">Remove: </label>
-                    <input type="checkbox" id="remove" checked={remove} onChange={()=>setRemove(!remove)}/>    
-
                     <button type="submit">Submit</button>
                 </form>  
                 </div>
 
                 <div>
                     {alltask.map((ele)=>(
-                        <div>
+                        <div key={ele.id}>
                             <h3>Task: {ele.task}</h3>  
                             <p>Completed: {ele.completed?("YES"):("NO")}</p>
-                            <p>Removed:{ele.remove?("YES"):("NO")}</p>  
-                            <button onClick={handleRemove}>Remove</button>
+                            <button onClick={()=>handleRemove(ele.id)}>Remove</button>
                         </div>
                     ))}    
                 </div>

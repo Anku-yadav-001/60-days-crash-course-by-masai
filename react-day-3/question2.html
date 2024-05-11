@@ -15,17 +15,44 @@
     // Your  code will go here
     let root=document.getElementById("root")
     let createRoot=ReactDOM.createRoot(root)
-    function handleInputField(){
-      return <>
-          <input placeholder="enter hobby"/>
-      </>
-    }
+
     function App(){
-      return <>
-      <input placeholder="enter hobby..."/>
-      <button onClick={handleInputField}>Add input Filed</button>
-      </>
+            let [hobbies,setHobbies]=React.useState([''])
+
+            function addHobby(){
+                setHobbies([...hobbies,''])
+            }
+            function handleSubmit(){
+                console.log(hobbies)
+            }
+            function handleChange(index,event){
+                let newHobby=[...hobbies]
+                newHobby[index]=event.target.value
+                setHobbies(newHobby)
+            }
+            function removeHobby(ind){
+                if(hobbies.length===1){
+                    return;
+                }
+                let newHobby=[...hobbies]
+                newHobby.splice(ind,1)
+                setHobbies(newHobby)
+            }
+        return <>
+             <div>
+                  {hobbies.map((hobby,ind)=>(
+                    <div>
+                        <input type="text" value={hobby} onChange={(e)=>handleChange(ind,e)}/>    
+                        {ind!==0 && (
+                            <button onClick={()=>removeHobby(ind)}>Remove</button>
+                        )}
+                    </div>
+                  ))}    
+            </div>
+              <button onClick={handleSubmit}>Submit</button>
+              <button onClick={addHobby}>Add Hobby</button>   
+        </>
     }
-    createRoot.render(<App/>)
+ createRoot.render(<App/>)    
   </script>
 </html>
