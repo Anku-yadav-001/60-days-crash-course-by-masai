@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Template</title>
+<style>
+    #container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+    #container div{
+        border: 2px solid black;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/babel">
+let root=document.getElementById("root")
+let createRoot=ReactDOM.createRoot(root)
+
+function App(){
+    let [title,setTitle]=React.useState("")
+    let [isCompleted,setIsCompleted]=React.useState(false)
+    let [assignee,setAssignee]=React.useState("")
+    let [alldata,setAlldata]=React.useState([])
+    let [assign,setAssign]=React.useState([])
+    let [update,setUpdate]=React.useState(false)
+
+    let [ntitle,setNtitle]=React.useState("")
+    let [niscompleted,setNiscompleted]=React.useState(false)
+    let [nassignee,setNassignee]=React.useState("")
+    let [base,setBase]=React.useState(null)
+
+    async function getData(){
+        try {
+            let resp=await axios("http://localhost:3000/todos")
+            setAlldata(resp.data)
+            setAssign(resp.data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    async function postData(){
+        try {
+            let resp=await axios.post('http://localhost:3000/todos',{
+                title:title,
+                isCompleted:isCompleted,
+                assignee:assignee
+            })
+            if(resp.status===201){
+                alert("Data added successfully")
+                getData();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    function handleSubmit(e){
+        e.preventDefault()
+        postData()
+    }
+
+    async function handleDelete(id){
+        try {
+            let ans=await axios.delete(`http://localhost:3000/todos/${id}`)
+            if(ans.status===200){
+                alert("Data deleted successfully")
+                getData();
+            }
+            setAlldata(alldata.filter(item => item.id !== id));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function handleUpdate(){
+        try {
+            let resp=await axios.put(`http://localhost:3000/todos/${base}`,{
+                title:ntitle,
+                isCompleted:niscompleted,
+                assignee:nassignee
+            })
+            if(resp.status===200){
+                alert("Data Updated successfully")
+                getData();
+            }
+            getData()
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+ async function filterByassignee(val){
+    try {
+        let resp=await axios.get(`http://localhost:3000/todos?assignee=${val}`)
+        setAlldata(resp.data)
+    } catch (error) {
+        console.log(error);
+    }
+ }
+ function incompletedTasks(){
+    let newData=alldata.filter((ele)=>ele.isCompleted==false)
+    setAlldata(newData)
+ }
+ function updatedData(id){
+    setUpdate(true) 
+    setBase(id)
+ }
+ console.log("assins ",assign);
+    return <>
+        <div id="container">
+            <div>
+                <h3>Get all tasks</h3>
+                <button onClick={getData}>Get all tasks</button>
+        </div>
+    <div>
+        <h3>Show only incomplete tasks</h3>
+        <button onClick={incompletedTasks}>Show incomplete tasks</button>
+    </div>
+    <div>
+        <h3>Filter tasks on the basis of assignee</h3>
+       <select id="assignees" onChange={(e) => filterByassignee(e.target.value)}>
+                <option value="">--select assignee--</option>
+               {assign.map((ele)=>(
+                 <option value={ele.assignee} key={ele.id}>{ele.assignee}</option>
+               ))}
+        </select>    
+    </div>
+
+    <div>
+            <h3>Add new one-</h3>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="title">Title: </label>
+                <input type="text" value={title} id="title" onChange={(e)=>setTitle(e.target.value)} placeholder="enter task"/><br/>
+
+                <label htmlFor="isCompleted">Completed: </label>
+                <input type="checkbox" checked={isCompleted} id="isCompleted" onChange={(e)=>setIsCompleted(e.target.checked)}/><br/>
+
+                <label htmlFor="assignee">Assignee: </label>
+                <input type="text" value={assignee} id="assignee" onChange={(e)=>setAssignee(e.target.value)} placeholder="enter assignee"/><br/>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>   
+
+        {
+            update?(
+                <div>
+                    <h3>Update tasks</h3>
+            <form onSubmit={handleUpdate}>
+                <label htmlFor="title">Title: </label>
+                <input type="text" value={ntitle} id="title" onChange={(e)=>setNtitle(e.target.value)} placeholder="enter new title"/><br/>
+
+                <label htmlFor="isCompleted">Completed: </label>
+                <input type="checkbox" checked={niscompleted} id="isCompleted" onChange={(e)=>setNiscompleted(e.target.checked)}/><br/>
+
+                <label htmlFor="assignee">Assignee: </label>
+                <input type="text" value={nassignee} id="assignee" onChange={(e)=>setNassignee(e.target.value)} placeholder="enter new assignee"/><br/>
+                 <input type="submit" value="SUBMIT !"/>
+            </form>  
+        </div>
+            ):("")
+        }
+        
+        </div>
+        <div>
+            {alldata.map((ele)=>(
+                <div key={ele.id} style={{border:"2px solid black",padding:"10px",margin:"10px",borderRadius:"10px"}}>
+                    <h4>Title: {ele.title}</h4>
+                    <p>Assignee: {ele.assignee}</p>
+                    <p>Completed: {ele.isCompleted ? "Yes" : "No"}</p>  
+                    <button onClick={()=>handleDelete(ele.id)}>Delete</button>
+                    <button onClick={()=>updatedData(ele.id)}>Update</button>
+                </div>
+            ))}
+        </div>
+    </>
+}
+createRoot.render(<App/>)
+</script>
+</body>
+</html>

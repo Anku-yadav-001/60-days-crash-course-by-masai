@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    let root = document.getElementById("root");
+    let createRoot = ReactDOM.createRoot(root);
+    
+    function UserProfile(){
+  let [users,setUsers]=React.useState([])
+  let [search,setSearch]=React.useState('')
+      async function getData(){//get request via axios to fetch the data from reqres.in API
+        try {
+          let resp=await axios.get("https://reqres.in/api/users")
+          setUsers(resp.data.data)//store the data in state
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      React.useEffect(function(){//useEffect for render only once when page is load
+          getData()
+      },[])
+
+     let newData=users.filter((user)=>user.first_name.toLowerCase().includes(search.toLowerCase()))//filter data on the basis of search query
+      return <>
+        <div>
+          <div>
+              <input type="text" placeholder="search user..." value={search} onChange={(e)=>setSearch(e.target.value)}/>  
+          </div>
+          {
+            newData.map((ele)=>(
+              <div>
+                <img src={ele.avatar}/>
+                <p><strong>Name:</strong> {ele.first_name}</p>
+                <p><strong>Email:</strong> {ele.email}</p>
+                </div>
+            ))
+          }
+         
+          </div>
+      </>
+    }
+
+    createRoot.render(<UserProfile />);
+  </script>
+</body>
+</html>

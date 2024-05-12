@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Your  code will go here
+    let root = document.getElementById("root")
+    let createRoot = ReactDOM.createRoot(root)
+    function GreetingCard({ greeting, name }) {//component that accept the `greeting` and `name` as props
+        return <>
+            <h2>{greeting}</h2>
+            <h3>!! {name} !!</h3>
+            <h2>💥🌟😊🌟💥</h2>
+        </>
+    }
+    function App() {
+        let greetingItems = [
+            { greeting: "Good Morning", name: "aman" },
+            { greeting: "Good Night", name: "anku" },
+            { greeting: "Good Evening", name: "raghav" },
+            { greeting: "Good Afternoon", name: "guys" },
+            { greeting: "Congratualtions!", name: "dear" },
+            { greeting: "Happy Birthday!", name: "brother" },
+        ]
+        let styleObj = {
+            border: "2px solid red",
+            width: "80%",
+            textAlign: "center",
+            borderRadius: "10px",
+            margin: "10px",
+            fontFamily: 'Arial, sans-serif',
+            backgroundColor: "pink",
+            padding:"5px"
+        }
+        let mainDivStyle={
+            width:"80%",
+            margin:"auto",
+            display:"grid",
+            gridTemplateColumns:"repeat(3,1fr)"
+        }
+        return <>
+           <div style={mainDivStyle}>
+            {greetingItems.map((ele, ind) => (//iterate on `greetingItems` and pass the data in GreetingCard component
+                <div style={styleObj}>
+                    <GreetingCard key={ind} greeting={ele.greeting} name={ele.name} />
+                </div>
+            ))}    
+        </div>
+        </>
+    }
+    createRoot.render(<App />)
+</script>
+
+</html>

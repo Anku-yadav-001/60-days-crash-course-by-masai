@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let root=document.getElementById("root")
+    let createRoot=ReactDOM.createRoot(root)
+    function ToDoList(){
+        let [task,setTask]=React.useState('')
+        let [alltasks,setAlltasks]=React.useState([])
+
+
+        function handleSubmit(e){
+            e.preventDefault()
+            setAlltasks((e)=>[...e,{//create an array of objects ans object has 2 properties competed and task
+                task:task,
+                completed:false//by default the taks is false/incompleted
+            }])
+        }
+        function handleCompletedChange(e){
+            let updated=[...alltasks]
+            updated[e].completed=!updated[e].completed //toggle completed from the UI 
+            setAlltasks(updated)
+        }
+        function handleDelete(ind){
+            let update=[...alltasks]
+            update.splice(ind,1)//delete a particuler item from the tasks using splice method
+            setAlltasks(update)
+        }
+        return <>
+         <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="add task..." value={task} onChange={(e)=>setTask(e.target.value)}/>
+            <button type="submit">Submit</button>    
+        </form>
+        <div>
+            {alltasks.map((ele,ind)=>(//iterate over all the tasks and render onto the UI
+               <div key={ind}>
+                <input type="checkbox" checked={ele.completed} onChange={()=>handleCompletedChange(ind)}/>
+                <span>{ele.task}</span>
+                <button onClick={()=>handleDelete(ind)}>Delete</button>
+                </div>
+            ))}
+        </div>
+        </>
+    }
+
+    function App(){
+        return <>
+            <ToDoList/>
+        </>
+    }
+    createRoot.render(<App/>)
+  </script>
+</html>
