@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // 2 siblings can not share data between them
+    let root = document.getElementById('root')
+    let createRoot = ReactDOM.createRoot(root)
+    function Child1({count}) {
+        return <>
+            <h2>Child 1: {count}</h2>
+        </>
+    }
+    function Child2({count}) {
+        return <>
+            <h2>Child 2: {count}</h2>
+        </>
+}
+    function Parent() {
+        let [count,setCount]=React.useState(0)
+        
+        return <>
+            <h1>Pass data from child to child</h1>
+            <button onClick={()=>setCount(count+1)}>Click!..</button>
+            <Child1 count={count}/>
+            <Child2 count={count} />
+        </>
+    }
+    createRoot.render(<Parent />)
+</script>
+
+</html>

@@ -50,7 +50,7 @@ const school = {
   
   console.log(findTopStudent(school, 'math'));
   
-  // Problem 12: addNewDept
+  // // Problem 12: addNewDept
   function addNewDept(school, newDepartment) {
     return { ...school, departments: { ...school.departments, ...newDepartment } };//using spread operator add new department
   }
@@ -58,7 +58,7 @@ const school = {
   const newDepartment = { art: { teachers: 2, students: 50 } };
   console.log(addNewDept(school, newDepartment));
   
-  // Problem 13: highestStudentCountDepartment
+  // // Problem 13: highestStudentCountDepartment
   function highestStudentCountDepartment(school) {
     let maxStudents = 0;
     let department = '';
@@ -76,7 +76,7 @@ const school = {
   
   console.log(highestStudentCountDepartment(school));
   
-  // Problem 14: Greeting Message
+  // // Problem 14: Greeting Message
   function generateGreeting(name, language = 'English') {
     const greetings = {
       English: `Hello, ${name}!`,

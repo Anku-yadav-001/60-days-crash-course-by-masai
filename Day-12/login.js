@@ -16,7 +16,6 @@
     let ans=await fetch("http://localhost:8080/users")
     let response=await ans.json();
     let isUserValid = response.some((ele) => ele.name === u_name && ele.password === u_password);
-  console.log(isUserValid);
   if(isUserValid){
     alert("User login successfully 💥💥")
     let exist=await isCartExist(u_name)
