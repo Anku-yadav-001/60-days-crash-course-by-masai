@@ -1,13 +1,12 @@
-import {Box, Container, Heading, SimpleGrid} from "@chakra-ui/react"
+import {Box, Button, Container, Heading, Input, SimpleGrid, Textarea} from "@chakra-ui/react"
 
 export function About(){
    
     return <>
        <Box>
-            <Container maxW='50%' height="50vh" textAlign="center" p="20px" borderRadius="10px" mt="20px" background="orange.400" color="white">
-              <Heading as="h3" size="lg">We help cannabies clubs find real estate</Heading>
-              <p>Found by a former city planner and a connabies industry pioneer. Our team has decades of experience finding and permitting peroperties for cannonies businesses. We understand the unique challanges and opportunities of the cannabies industry, and we're here to help you succed.</p>
-            
+            <Container maxW='50%' height="50vh" textAlign="center" p="20px" borderRadius="10px" mt="20px" backgroundImage="https://thumbs.dreamstime.com/b/wheat-ears-sunset-silhouettes-sky-background-95008999.jpg" color="red" backgroundSize="cover">
+              <Heading as="h3" size="lg" mt="100px">Welcome to European Grains</Heading>
+              <p>We re a leading grain and oilseed trading company operating in the European Union</p>
             </Container>
            <Container maxW="50%" mt="20px">
                <Heading as="h6" size="md" textAlign="left">About</Heading>
@@ -82,6 +81,20 @@ export function About(){
             <p>Soyabean Hulls</p>
            </Box>
        </SimpleGrid>
+       </Container>
+       <Container maxW="50%" mt="60px" p="10px">
+          <Heading as="h6" size="md">Delivery and Packaging</Heading>
+			<p style={{fontSize:"14px"}}>We offer a range of delivery and packaging options to meet your needs. Our products can be delivered in bulk or in bags, and we can provide custom packaging solutions if required. We work with a network of trusted transport paterns to ensure that your order is delicered on the time and in perfect condition. If you have any specific requirements, please let us know, and we will do our best to accommodate them.</p>
+       </Container>
+       <Container mt="20px" maxW="50%">
+          <Heading as="h6" size="md">Contact Us</Heading>
+          <label style={{paddingTop:"50px"}}>Your Name</label><br />
+          <Input maxW="50%"/><br />
+          <label style={{paddingTop:"50px"}}>Your Email</label><br />
+          <Input maxW="50%"/><br />
+          <label style={{paddingTop:"50px"}}>Your Message</label><br />
+          <Textarea maxW="50%"/><br />
+          <Button color="black" bg="green.500" mt="20px">Send</Button>
        </Container>
     </>
 }

@@ -1,6 +1,9 @@
 import {Box, Button, Flex, Heading, VStack} from "@chakra-ui/react"
+import { useContext } from "react"
 import {Link} from "react-router-dom"
+import {AuthContext} from "../Context/AuthContext.jsx"
 export function Navbar(){
+    let {isAuth,logout} = useContext(AuthContext)
     let links=[
         {
             to:"/",
@@ -31,7 +34,7 @@ export function Navbar(){
                         <Link to={items.to} key={items.to}><Heading as="h6" size="md" pr="30px" m="10px">{items.label}</Heading></Link>
                 ))
             }
-            <Button variant='outline'>LOGOUT</Button>
+            {isAuth?<Button variant='outline' onClick={logout}>LOGOUT</Button>:""}
             </Flex>
        </Box>
     </>
